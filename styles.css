@@ -1,0 +1,96 @@
+:root {
+  color-scheme: light;
+  --viewer-bg: #333639;
+  --button-bg: rgba(30, 30, 30, 0.94);
+  --button-fg: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--viewer-bg);
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+.pages {
+  width: 100%;
+  padding: 18px 12px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.page {
+  display: block;
+  width: min(100%, 850px);
+  height: auto;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.download {
+  position: fixed;
+  z-index: 10;
+  top: max(14px, env(safe-area-inset-top));
+  right: max(14px, env(safe-area-inset-right));
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 46px;
+  padding: 0 17px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: var(--button-bg);
+  color: var(--button-fg);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.download svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.download:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 600px) {
+  .pages {
+    padding: 0 0 24px;
+    gap: 10px;
+  }
+
+  .page {
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .download {
+    top: max(10px, env(safe-area-inset-top));
+    right: max(10px, env(safe-area-inset-right));
+    min-height: 44px;
+    padding: 0 14px;
+    font-size: 15px;
+  }
+}
